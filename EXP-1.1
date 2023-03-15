@@ -1,8 +1,11 @@
+                              EXPERIMENT NO: 1.1 DDL COMMANDS
+                             *******************************
+
 (A)
 
 1) Create a table EMPLOYEE have the following fields (emp_id, name,city,dob,adhar_no)
 
-create table EMPLOYEE(emp_id int,name varchar(20), city varchar(35),dob
+MYSQL>create table EMPLOYEE(emp_id int,name varchar(20), city varchar(35),dob
 date,adhar_no int);Query OK, 0 rows affected (0.21 sec)
 
  desc EMPLOYEE;
@@ -86,12 +89,12 @@ Records: 0  Duplicates: 0  Warnings: 0
 create database INVOICE;
 Query OK, 1 row affected (0.00 sec)
 
-use INVOICE;
+MYSQL>use INVOICE;
 Database changed
-create table Customer(id int primary key,address varchar(55),city varchar(38),ph_no int);
+MYSQL>create table Customer(id int primary key,address varchar(55),city varchar(38),ph_no int);
 Query OK, 0 rows affected (0.22 sec)
 
-desc Customer;
+MYSQL>desc Customer;
 +---------+-------------+------+-----+---------+-------+
 | Field   | Type        | Null | Key | Default | Extra |
 +---------+-------------+------+-----+---------+-------+
@@ -104,7 +107,7 @@ desc Customer;
 create table Product(pid int primary key,pname varchar(20),price decimal(3,2) default'0');
 Query OK, 0 rows affected (0.18 sec)
 
-desc Product;
+MYSQL>desc Product;
 +-------+--------------+------+-----+---------+-------+
 | Field | Type         | Null | Key | Default | Extra |
 +-------+--------------+------+-----+---------+-------+
@@ -139,3 +142,4 @@ Query OK, 0 rows affected (0.24 sec)
 +----------+---------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
+//WRITE MYSQL> BEFORE EACH QUERY
