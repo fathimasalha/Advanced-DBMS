@@ -61,3 +61,35 @@ Records: 0  Duplicates: 0  Warnings: 0
 +----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
+5)create database INVOICE;
+Query OK, 1 row affected (0.00 sec)
+
+use INVOICE;
+Database changed
+create table Customer(id int primary key,address varchar(55),city varchar(38),ph_no int);
+Query OK, 0 rows affected (0.22 sec)
+
+desc Customer;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | NO   | PRI | NULL    |       |
+| address | varchar(55) | YES  |     | NULL    |       |
+| city    | varchar(38) | YES  |     | NULL    |       |
+| ph_no   | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+create table Product(pid int primary key,pname varchar(20),price decimal(3,2) default'0');
+Query OK, 0 rows affected (0.18 sec)
+
+desc Product;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| pid   | int(11)      | NO   | PRI | NULL    |       |
+| pname | varchar(20)  | YES  |     | NULL    |       |
+| price | decimal(3,2) | YES  |     | 0.00    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
