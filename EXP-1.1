@@ -129,7 +129,7 @@ desc Invoice_master;
  create table Invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references Invoice_master(inv_id),foreign key(pid) references Product(pid));
 Query OK, 0 rows affected (0.24 sec)
 
-mysql> desc Invoice_item;
+ desc Invoice_item;
 +----------+---------+------+-----+---------+-------+
 | Field    | Type    | Null | Key | Default | Extra |
 +----------+---------+------+-----+---------+-------+
