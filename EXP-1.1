@@ -14,3 +14,18 @@ date,adhar_no int);Query OK, 0 rows affected (0.21 sec)
 | adhar_no | int(11)     | YES  |     | NULL    |       |
 +----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
+
+2)create table STUDENT(Roll_no int primary key,Name varchar(20) not null
+,Age int  not null,address varchar(35),Gender varchar(25) default'm',CHECK(Age<100));
+Query OK, 0 rows affected (0.19 sec)
+
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Roll_no | int(11)     | NO   | PRI | NULL    |       |
+| Name    | varchar(20) | NO   |     | NULL    |       |
+| Age     | int(11)     | NO   |     | NULL    |       |
+| address | varchar(35) | YES  |     | NULL    |       |
+| Gender  | varchar(25) | YES  |     | m       |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
