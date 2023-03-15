@@ -92,4 +92,15 @@ desc Product;
 +-------+--------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
+create table Invoice_master(inv_id int primary key,id int,inv_date date,foreign key(id)  references Customer(id));
+Query OK, 0 rows affected (0.22 sec)
+desc Invoice_master;
++---------+---------+------+-----+---------+-------+
+| Field   | Type    | Null | Key | Default | Extra |
++---------+---------+------+-----+---------+-------+
+| inv_id  | int(11) | NO   | PRI | NULL    |       |
+| id      | int(11) | YES  | MUL | NULL    |       |
+| inv_date| date    | YES  |     | NULL    |       |
++---------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
 
