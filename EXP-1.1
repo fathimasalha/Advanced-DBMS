@@ -143,7 +143,6 @@ MYSQL>desc Invoice_master;
  
 MYSQL>create table Invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references Invoice_master(inv_id),foreign key(pid) references Product(pid));
 Query OK, 0 rows affected (0.24 sec)
-
  
 MYSQL>desc Invoice_item;
 +----------+---------+------+-----+---------+-------+
@@ -232,5 +231,24 @@ mysql> desc EMPLOYEE;
 | adhar_no | int(11)     | YES  | UNI | NULL    |       |
 +----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
+
+5)Delete the NULL constraint of ‘age’ in the STUDENT table.
+
+mysql> ALTER TABLE STUDENT MODIFY Age INT NULL;
+Query OK, 0 rows affected (0.44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc STUDENT;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Roll_no | int(11)     | NO   | PRI | NULL    |       |
+| Name    | varchar(20) | NO   |     | NULL    |       |
+| Age     | int(11)     | YES  |     | NULL    |       |
+| address | varchar(35) | YES  |     | NULL    |       |
+| Gender  | varchar(25) | YES  |     | m       |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
 
 
