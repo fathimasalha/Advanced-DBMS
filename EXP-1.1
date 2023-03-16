@@ -195,3 +195,22 @@ mysql> desc EMPLOYEE;
 | adhar_no | int(11)     | YES  |     | NULL    |       |
 +----------+-------------+------+-----+---------+-------+
 6 rows in set (0.00 sec)
+
+3)Delete the column ‘emp_id’ the table EMPLOYEE
+
+mysql> ALTER TABLE EMPLOYEE  DROP COLUMN emp_id;
+Query OK, 0 rows affected (0.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc EMPLOYEE;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| SSN      | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(20) | YES  |     | NULL    |       |
+| city     | varchar(35) | YES  |     | NULL    |       |
+| dob      | year(4)     | YES  |     | NULL    |       |
+| adhar_no | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
