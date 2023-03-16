@@ -8,7 +8,8 @@
 MYSQL>create table EMPLOYEE(emp_id int,name varchar(20), city varchar(35),dob
 date,adhar_no int);Query OK, 0 rows affected (0.21 sec)
 
- desc EMPLOYEE;
+ 
+MYSQL>desc EMPLOYEE;
 +----------+-------------+------+-----+---------+-------+
 | Field    | Type        | Null | Key | Default | Extra |
 +----------+-------------+------+-----+---------+-------+
@@ -28,10 +29,12 @@ date,adhar_no int);Query OK, 0 rows affected (0.21 sec)
                Age- must be in between (0-99), does not allow null values
                Gender- default value is ‘m’
 
-create table STUDENT(Roll_no int primary key,Name varchar(20) not null
+
+MYSQL>create table STUDENT(Roll_no int primary key,Name varchar(20) not null
 ,Age int  not null,address varchar(35),Gender varchar(25) default'm',CHECK(Age<100));
 Query OK, 0 rows affected (0.19 sec)
- desc STUDENT;
+ 
+MYSQL>desc STUDENT;
 +---------+-------------+------+-----+---------+-------+
 | Field   | Type        | Null | Key | Default | Extra |
 +---------+-------------+------+-----+---------+-------+
@@ -45,10 +48,12 @@ Query OK, 0 rows affected (0.19 sec)
 
 3) Create a temporary table STUDENT1 of STUDENT relation.
 
-create temporary table STUDENT1 select*from STUDENT;
+
+MYSQL>create temporary table STUDENT1 select*from STUDENT;
 Query OK, 1 row affected (0.00 sec)
 Records: 1  Duplicates: 0  Warnings: 0
- DESC STUDENT1;
+
+MYSQL>DESC STUDENT1;
 +---------+-------------+------+-----+---------+-------+
 | Field   | Type        | Null | Key | Default | Extra |
 +---------+-------------+------+-----+---------+-------+
@@ -62,11 +67,13 @@ Records: 1  Duplicates: 0  Warnings: 0
 
 4) Create a duplicate table of EMPLOYEE.
 
-CREATE TABLE IF NOT EXISTS EMPLOYEE_DUP SELECT*FROM EMPLOYEE;
+
+MYSQL>CREATE TABLE IF NOT EXISTS EMPLOYEE_DUP SELECT*FROM EMPLOYEE;
 Query OK, 0 rows affected (0.18 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
- desc EMPLOYEE_DUP;
+ 
+MYSQL>desc EMPLOYEE_DUP;
 +----------+-------------+------+-----+---------+-------+
 | Field    | Type        | Null | Key | Default | Extra |
 +----------+-------------+------+-----+---------+-------+
@@ -86,7 +93,8 @@ Records: 0  Duplicates: 0  Warnings: 0
         Invoice_item(inv_id (FK),  pid(FK), quantity)
    
 
-create database INVOICE;
+
+MYSQL>create database INVOICE;
 Query OK, 1 row affected (0.00 sec)
 
 MYSQL>use INVOICE;
@@ -104,7 +112,8 @@ MYSQL>desc Customer;
 | ph_no   | int(11)     | YES  |     | NULL    |       |
 +---------+-------------+------+-----+---------+-------+
 4 rows in set (0.00 sec)
-create table Product(pid int primary key,pname varchar(20),price decimal(3,2) default'0');
+
+MYSQL>create table Product(pid int primary key,pname varchar(20),price decimal(3,2) default'0');
 Query OK, 0 rows affected (0.18 sec)
 
 MYSQL>desc Product;
@@ -117,9 +126,11 @@ MYSQL>desc Product;
 +-------+--------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
-create table Invoice_master(inv_id int primary key,id int,inv_date date,foreign key(id)  references Customer(id));
+
+MYSQL>create table Invoice_master(inv_id int primary key,id int,inv_date date,foreign key(id)  references Customer(id));
 Query OK, 0 rows affected (0.22 sec)
-desc Invoice_master;
+
+MYSQL>desc Invoice_master;
 +---------+---------+------+-----+---------+-------+
 | Field   | Type    | Null | Key | Default | Extra |
 +---------+---------+------+-----+---------+-------+
@@ -129,10 +140,12 @@ desc Invoice_master;
 +---------+---------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
- create table Invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references Invoice_master(inv_id),foreign key(pid) references Product(pid));
+ 
+MYSQL>create table Invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references Invoice_master(inv_id),foreign key(pid) references Product(pid));
 Query OK, 0 rows affected (0.24 sec)
 
- desc Invoice_item;
+ 
+MYSQL>desc Invoice_item;
 +----------+---------+------+-----+---------+-------+
 | Field    | Type    | Null | Key | Default | Extra |
 +----------+---------+------+-----+---------+-------+
