@@ -270,4 +270,12 @@ mysql> desc PERSON;
 +----------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-7)Delete the table STUDENT1.
+7)Delete the table EMPLOYEE_DUP.
+
+mysql> DROP TABLE EMPLOYEE_DUP;
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> DESC EMPLOYEE_DUP;
+ERROR 1146 (42S02): Table 'salha.EMPLOYEE_DUP' doesn't exist
+mysql> 
+
