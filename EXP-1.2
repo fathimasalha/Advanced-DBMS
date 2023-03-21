@@ -75,3 +75,22 @@ mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
 7 rows in set (0.00 sec)
 
+
+mysql> insert into  Product values(10,'PENCIL',10),(11,'PEN',15),(12,'BOX',50),(13,'SCALE',10),(14,'NOTEBOOK',48),(15,'COLOR',40),(16,'MARKER',15);
+Query OK, 7 rows affected (0.04 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    10 |
+|  11 | PEN      |    15 |
+|  12 | BOX      |    50 |
+|  13 | SCALE    |    10 |
+|  14 | NOTEBOOK |    48 |
+|  15 | COLOR    |    40 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
