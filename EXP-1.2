@@ -160,3 +160,50 @@ mysql> select * from Invoice_master;
 +--------+------+------------+
 9 rows in set (0.00 sec)
 
+mysql> desc Invoice_item;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| inv_id   | int(11) | YES  | MUL | NULL    |       |
+| pid      | int(11) | YES  | MUL | NULL    |       |
+| quantity | int(11) | YES  |     | NULL    |       |
++----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into Invoice_item values(1,1mysql> insert into Invoice_item values(1,10,2);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Invoice_item values(2,11,6),(4,15,5);
+Query OK, 2 rows affected (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into Invoice_item values(6,13,8),(7,11,4);
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into Invoice_item values(6,12,2);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Invoice_item values(3,10,2);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from  Invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|      1 |   10 |        2 |
+|      2 |   11 |        6 |
+|      4 |   15 |        5 |
+|      6 |   13 |        8 |
+|      7 |   11 |        4 |
+|      6 |   12 |        2 |
+|      3 |   10 |        2 |
++--------+------+----------+
+7 rows in set (0.00 sec)
+
+
+
+
+
+
+
