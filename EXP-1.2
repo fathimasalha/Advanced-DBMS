@@ -41,10 +41,23 @@ mysql> SELECT * FROM STUDENT;
 
 3.Insert values in INVOICE database. 
 
+mysql> desc Customer;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | NO   | PRI | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| address | varchar(55) | YES  |     | NULL    |       |
+| city    | varchar(38) | YES  |     | NULL    |       |
+| ph_no   | varchar(10) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
 mysql>insert into Customer values(100,'ALI','THAYATH','CALICUT',9544358026);
 Query OK, 1 row affected (0.03 sec)
 
-mysql>insert into Customer values(101,'HARI','TEKKAD','ADIVARAM',9876574634);
+mysql>mysql>  insert into Customer values(101,'HARI','THARAMAL','PALATH',' ');
 Query OK, 1 row affected (0.03 sec)
 
 mysql>  insert into Customer values(102,'KIRAN','PARAYIL','MADAVOOR',9876574894);
@@ -66,7 +79,7 @@ mysql> select * from Customer;
 | id  | name   | address   | city      | ph_no      |
 +-----+--------+-----------+-----------+------------+
 | 100 | ALI    | THAYATH   | CALICUT   | 9544358026 |
-| 101 | HARI   | TEKKAD    | ADIVARAM  | 9876574634 |
+| 101 | HARI   | THARAMAL  | PALATH    |            |
 | 102 | KIRAN  | PARAYIL   | MADAVOOR  | 9876574894 |
 | 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
 | 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
@@ -75,6 +88,15 @@ mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
 7 rows in set (0.00 sec)
 
+mysql> desc Product;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| pid   | int(11)     | NO   | PRI | NULL    |       |
+| pname | varchar(20) | YES  |     | NULL    |       |
+| price | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
 
 mysql> insert into  Product values(10,'PENCIL',10),(11,'PEN',15),(12,'BOX',50),(13,'SCALE',10),(14,'NOTEBOOK',48),(15,'COLOR',40),(16,'MARKER',15);
 Query OK, 7 rows affected (0.04 sec)
