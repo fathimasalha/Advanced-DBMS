@@ -119,3 +119,44 @@ mysql> select * from Product;
 +-----+----------+-------+
 7 rows in set (0.00 sec)
 
+
+mysql> desc Invoice_master;
++---------+---------+------+-----+---------+-------+
+| Field   | Type    | Null | Key | Default | Extra |
++---------+---------+------+-----+---------+-------+
+| inv_id  | int(11) | NO   | PRI | NULL    |       |
+| id      | int(11) | YES  | MUL | NULL    |       |
+| in_date | date    | YES  |     | NULL    |       |
++---------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
+mysql> insert into Invoice_master values(7,105,'2023-03-04'),(6,106,'2022-12-23'),(5,104,'2022-11-12');
+Query OK, 3 rows affected (0.04 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into Invoice_master values(007,105,'2023-03-04'),(006,106,'2022-12-23'),(005,104,'2022-11-12');
+Query OK, 3 rows affected (0.04 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+
+mysql> insert into Invoice_master values(008,106,'2023-03-04'),(009,105,'2022-12-24');
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from Invoice_master;
++--------+------+------------+
+| inv_id | id   | in_date    |
++--------+------+------------+
+|      1 |  100 | 2022-12-03 |
+|      2 |  100 | 2022-11-11 |
+|      3 |  102 | 2022-11-12 |
+|      4 |  103 | 2023-02-11 |
+|      5 |  104 | 2022-11-12 |
+|      6 |  106 | 2022-12-23 |
+|      7 |  105 | 2023-03-04 |
+|      8 |  106 | 2023-03-04 |
+|      9 |  105 | 2022-12-24 |
++--------+------+------------+
+9 rows in set (0.00 sec)
+
