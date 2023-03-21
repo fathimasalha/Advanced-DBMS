@@ -99,7 +99,7 @@ Query OK, 1 row affected (0.00 sec)
 
 MYSQL>use INVOICE;
 Database changed
-MYSQL>create table Customer(id int primary key,address varchar(55),city varchar(38),ph_no int);
+MYSQL>create table Customer(id int primary key,name varchar(20),address varchar(55),city varchar(38),ph_no int);
 Query OK, 0 rows affected (0.22 sec)
 
 MYSQL>desc Customer;
@@ -107,6 +107,7 @@ MYSQL>desc Customer;
 | Field   | Type        | Null | Key | Default | Extra |
 +---------+-------------+------+-----+---------+-------+
 | id      | int(11)     | NO   | PRI | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
 | address | varchar(55) | YES  |     | NULL    |       |
 | city    | varchar(38) | YES  |     | NULL    |       |
 | ph_no   | int(11)     | YES  |     | NULL    |       |
