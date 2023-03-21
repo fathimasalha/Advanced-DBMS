@@ -3,8 +3,21 @@
 
 (a) DML COMMANDS-INSERT
    
-1)Insert values in EMPLOYEE table.                           
-                               
+1)Insert values in EMPLOYEE table. 
+
+mysql> desc EMPLOYEE;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| SSN      | int(11)     | YES  | UNI | NULL    |       |
+| name     | varchar(20) | YES  |     | NULL    |       |
+| city     | varchar(35) | YES  |     | NULL    |       |
+| dob      | year(4)     | YES  |     | NULL    |       |
+| adhar_no | int(11)     | YES  | UNI | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
 mysql> INSERT INTO EMPLOYEE VALUES(1,'SANJU','Kollam',2001,95445),(2,'ABHI','Kochi',2002,67559),(3,'RAM','Calicut',2000,45673),(4,'MANU','Kannur',2001,56432),(5,'TOM','Palakkad',2002,65432);
 Query OK, 4 rows affected (0.04 sec)
 Records: 4  Duplicates: 0  Warnings: 0
@@ -22,6 +35,19 @@ mysql> SELECT * FROM EMPLOYEE;
 5 rows in set (0.00 sec)
 
 2.Insert values in STUDENT table.
+
+mysql> DESC STUDENT;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Roll_no | int(11)     | NO   | PRI | NULL    |       |
+| Name    | varchar(20) | NO   |     | NULL    |       |
+| Age     | int(11)     | YES  |     | NULL    |       |
+| address | varchar(35) | YES  |     | NULL    |       |
+| Gender  | varchar(25) | YES  |     | m       |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
 
 mysql>  INSERT INTO STUDENT VALUES(12,'JOHN',18,'ELETTIL','M'),(16,'JINA',19,'ULLIYERI','F'),(13,'HARI',19,'THALAYAD','M'),(14,'FEMI',18,'NARIKODE','F'),(15,'TIYA',17,'KALPETTA','F');
 Query OK, 5 rows affected (0.03 sec)
