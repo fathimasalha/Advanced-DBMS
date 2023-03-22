@@ -490,3 +490,89 @@ mysql> select * from Invoice_item;
 |      6 |   13 |        8 |
 +--------+------+----------+
 2 rows in set (0.00 sec)
+
+ 4. Delete details of employees who does not have phone number. 
+ 
+ mysql> select * from Customer;
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 101 | HARI   | THARAMAL  | PALATH    | NULL       |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
++-----+--------+-----------+-----------+------------+
+6 rows in set (0.00 sec)
+
+mysql>  DELETE FROM Customer WHERE ph_no IS NULL;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from Customer;
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
++-----+--------+-----------+-----------+------------+
+5 rows in set (0.00 sec)
+
+5. Delete all records from STUDENT table. 
+
+mysql> select*from STUDENT;
++---------+------+------+----------+--------+
+| Roll_no | Name | Age  | address  | Gender |
++---------+------+------+----------+--------+
+|      12 | JOHN |   18 | ELETTIL  | M      |
+|      13 | HARI |   19 | THALAYAD | M      |
+|      14 | FEMI |   18 | NARIKODE | F      |
+|      15 | TIYA |   17 | KALPETTA | F      |
+|      16 | JINA |   19 | ULLIYERI | F      |
++---------+------+------+----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> DELETE FROM STUDENT;
+Query OK, 5 rows affected (0.03 sec)
+
+mysql> select*from STUDENT;
+Empty set (0.00 sec)
+
+6.Delete Invoice details of a particular customer.
+
+mysql> select * from Invoice_master;
++--------+------+------------+
+| inv_id | id   | in_date    |
++--------+------+------------+
+|      1 |  100 | 2022-12-03 |
+|      2 |  100 | 2022-11-11 |
+|      4 |  103 | 2023-02-11 |
+|      5 |  104 | 2022-11-12 |
+|      6 |  106 | 2022-12-23 |
+|      7 |  105 | 2023-03-04 |
+|      8 |  106 | 2023-03-04 |
+|      9 |  105 | 2022-12-24 |
++--------+------+------------+
+8 rows in set (0.00 sec)
+
+mysql> DELETE FROM Invoice_master  WHERE id=103;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from Invoice_master;
++--------+------+------------+
+| inv_id | id   | in_date    |
++--------+------+------------+
+|      1 |  100 | 2022-12-03 |
+|      2 |  100 | 2022-11-11 |
+|      5 |  104 | 2022-11-12 |
+|      6 |  106 | 2022-12-23 |
+|      7 |  105 | 2023-03-04 |
+|      8 |  106 | 2023-03-04 |
+|      9 |  105 | 2022-12-24 |
++--------+------+------------+
+7 rows in set (0.00 sec)
+
+
