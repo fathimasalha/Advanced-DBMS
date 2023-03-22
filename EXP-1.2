@@ -300,3 +300,38 @@ mysql> select * from Customer;
 | 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
 +-----+--------+-----------+-----------+------------+
 7 rows in set (0.00 sec)
+
+3.Update all prices with 2% of its original price
+
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    10 |
+|  11 | PEN      |    15 |
+|  12 | BOX      |    50 |
+|  13 | SCALE    |    10 |
+|  14 | NOTEBOOK |    48 |
+|  15 | COLOR    |    70 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE Product set price=price+(price*2/100);
+Query OK, 3 rows affected (0.04 sec)
+Rows matched: 7  Changed: 3  Warnings: 0
+
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    10 |
+|  11 | PEN      |    15 |
+|  12 | BOX      |    51 |
+|  13 | SCALE    |    10 |
+|  14 | NOTEBOOK |    49 |
+|  15 | COLOR    |    71 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
