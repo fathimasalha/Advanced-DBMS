@@ -231,7 +231,38 @@ mysql> select * from  Invoice_item;
 -----------------------------------------------------------------------------------------------------------
  b)DML COMMANDS- UPDATE
  
-    1. Update the price of a particular product. 
+1.Update the price of a particular product. 
 
 
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    10 |
+|  11 | PEN      |    15 |
+|  12 | BOX      |    50 |
+|  13 | SCALE    |    10 |
+|  14 | NOTEBOOK |    48 |
+|  15 | COLOR    |    40 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE Product set price=70 where pid=15;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    10 |
+|  11 | PEN      |    15 |
+|  12 | BOX      |    50 |
+|  13 | SCALE    |    10 |
+|  14 | NOTEBOOK |    48 |
+|  15 | COLOR    |    70 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
 
