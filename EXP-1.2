@@ -48,7 +48,6 @@ mysql> DESC STUDENT;
 +---------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
-
 mysql>  INSERT INTO STUDENT VALUES(12,'JOHN',18,'ELETTIL','M'),(16,'JINA',19,'ULLIYERI','F'),(13,'HARI',19,'THALAYAD','M'),(14,'FEMI',18,'NARIKODE','F'),(15,'TIYA',17,'KALPETTA','F');
 Query OK, 5 rows affected (0.03 sec)
 Records: 5  Duplicates: 0  Warnings: 0
@@ -334,4 +333,39 @@ mysql> select * from Product;
 |  16 | MARKER   |    15 |
 +-----+----------+-------+
 7 rows in set (0.00 sec)
+
+4.Change the address, city, phone number of a particular customer. 
+
+mysql> select * from Customer;
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 101 | HARI   | THARAMAL  | PALATH    | NULL       |
+| 102 | KIRAN  | PARAYIL   | MADAVOOR  | 9876574894 |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
++-----+--------+-----------+-----------+------------+
+7 rows in set (0.01 sec)
+
+mysql> update Customer set address="KADAVU",ph_no=7658439024,city="WAYANAD" where id=102;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Customer;
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 101 | HARI   | THARAMAL  | PALATH    | NULL       |
+| 102 | KIRAN  | KADAVU    | WAYANAD   | 7658439024 |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
++-----+--------+-----------+-----------+------------+
+7 rows in set (0.00 sec)
+
 
