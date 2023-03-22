@@ -34,7 +34,7 @@ mysql> SELECT * FROM EMPLOYEE;
 +------+-------+----------+------+----------+
 5 rows in set (0.00 sec)
 
-2.Insert values in STUDENT table.
+2)Insert values in STUDENT table.
 
 mysql> DESC STUDENT;
 +---------+-------------+------+-----+---------+-------+
@@ -64,7 +64,7 @@ mysql> SELECT * FROM STUDENT;
 +---------+------+------+----------+--------+
 6 rows in set (0.00 sec)
 
-3.Insert values in INVOICE database. 
+3)Insert values in INVOICE database. 
 
 mysql> desc Customer;
 +---------+-------------+------+-----+---------+-------+
@@ -185,6 +185,7 @@ mysql> select * from Invoice_master;
 +--------+------+------------+
 9 rows in set (0.00 sec)
 
+
 mysql> desc Invoice_item;
 +----------+---------+------+-----+---------+-------+
 | Field    | Type    | Null | Key | Default | Extra |
@@ -230,7 +231,7 @@ mysql> select * from  Invoice_item;
 -----------------------------------------------------------------------------------------------------------
  b)DML COMMANDS- UPDATE
  
-1.Update the price of a particular product. 
+1)Update the price of a particular product. 
 
 
 mysql> select * from Product;
@@ -265,8 +266,8 @@ mysql> select * from Product;
 +-----+----------+-------+
 7 rows in set (0.00 sec)
 
-2. Change the name of city ‘CALICUT’ to ‘KOZHIKODE’ in the customer table.
 
+2)Change the name of city ‘CALICUT’ to ‘KOZHIKODE’ in the customer table.
 
 mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
@@ -300,7 +301,7 @@ mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
 7 rows in set (0.00 sec)
 
-3.Update all prices with 2% of its original price
+3)Update all prices with 2% of its original price
 
 mysql> select * from Product;
 +-----+----------+-------+
@@ -334,7 +335,8 @@ mysql> select * from Product;
 +-----+----------+-------+
 7 rows in set (0.00 sec)
 
-4.Change the address, city, phone number of a particular customer. 
+
+4)Change the address, city, phone number of a particular customer. 
 
 mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
@@ -368,8 +370,7 @@ mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
 7 rows in set (0.00 sec)
 
-5. Change the quantity of a purchased product of inv_id ‘1’
-
+5)Change the quantity of a purchased product of inv_id ‘1’
 
 mysql> SELECT * FROM Invoice_item;
 +--------+------+----------+
@@ -406,7 +407,7 @@ mysql> SELECT * FROM Invoice_item;
 ----------------------------------------------------------------------------------
 c) DML COMMAND- DELETE
   
-1. Delete the record of customer id ‘102’.
+1)Delete the record of customer id ‘102’.
    
 mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
@@ -438,7 +439,8 @@ mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
 6 rows in set (0.00 sec)
 
-2. Delete all purchase details of items its quantity less than 5.
+
+2)Delete all purchase details of items its quantity less than 5.
 
 mysql> select * from Invoice_item;
 +--------+------+----------+
@@ -521,7 +523,7 @@ mysql> select * from Customer;
 +-----+--------+-----------+-----------+------------+
 5 rows in set (0.00 sec)
 
-5. Delete all records from STUDENT table. 
+5)Delete all records from STUDENT table. 
 
 mysql> select*from STUDENT;
 +---------+------+------+----------+--------+
@@ -541,7 +543,7 @@ Query OK, 5 rows affected (0.03 sec)
 mysql> select*from STUDENT;
 Empty set (0.00 sec)
 
-6.Delete Invoice details of a particular customer.
+6)Delete Invoice details of a particular customer.
 
 mysql> select * from Invoice_master;
 +--------+------+------------+
