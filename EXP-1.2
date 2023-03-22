@@ -437,3 +437,56 @@ mysql> select * from Customer;
 | 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
 +-----+--------+-----------+-----------+------------+
 6 rows in set (0.00 sec)
+
+2. Delete all purchase details of items its quantity less than 5.
+
+mysql> select * from Invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|      1 |   10 |        4 |
+|      2 |   11 |        6 |
+|      4 |   15 |        5 |
+|      6 |   13 |        8 |
+|      7 |   11 |        4 |
+|      6 |   12 |        2 |
++--------+------+----------+
+6 rows in set (0.00 sec)
+
+mysql>  DELETE FROM Invoice_item  WHERE quantity<5;
+Query OK, 3 rows affected (0.04 sec)
+
+mysql> select * from Invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|      2 |   11 |        6 |
+|      4 |   15 |        5 |
+|      6 |   13 |        8 |
++--------+------+----------+
+3 rows in set (0.00 sec)
+
+
+3.Delete the purchase details of product 'pen' in the inv_id=2.
+
+mysql> select * from Invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|      2 |   11 |        6 |
+|      4 |   15 |        5 |
+|      6 |   13 |        8 |
++--------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> DELETE FROM Invoice_item  WHERE inv_id=2  AND pid=11;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from Invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|      4 |   15 |        5 |
+|      6 |   13 |        8 |
++--------+------+----------+
+2 rows in set (0.00 sec)
