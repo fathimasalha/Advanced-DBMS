@@ -18,3 +18,31 @@ mysql> SELECT * FROM Customer;
 6 rows in set (0.00 sec)
 
 -------------------------------------------------------------------------------------
+2.List pname, price of all products
+
+mysql> SELECT pname,price FROM Product;
++----------+-------+
+| pname    | price |
++----------+-------+
+| PENCIL   |    10 |
+| PEN      |    15 |
+| BOX      |    51 |
+| SCALE    |    10 |
+| NOTEBOOK |    49 |
+| COLOR    |    71 |
+| MARKER   |    15 |
++----------+-------+
+7 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+3.List all invoice items, avoid duplicates.
+
+mysql> SELECT DISTINCT inv_id from Invoice_item;
++--------+
+| inv_id |
++--------+
+|      6 |
++--------+
+1 row in set (0.02 sec)
+
+----------------------------------------------------------------------------
