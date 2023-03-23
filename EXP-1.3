@@ -156,4 +156,13 @@ mysql> GRANT DELETE,UPDATE  ON INVOICE.* TO 'USER2'@'localhost';
 Query OK, 0 rows affected (0.00 sec)
 
 
+mysql> SHOW GRANTS;
++---------------------------------------------------------------------+
+| Grants for USER1@localhost                                          |
++---------------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'USER1'@'localhost'                           |
+| GRANT SELECT, INSERT ON `INVOICE`.`Customer` TO 'USER1'@'localhost' |
++---------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
 
