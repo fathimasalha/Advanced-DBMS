@@ -4,3 +4,38 @@
 a)TCL COMMANDS
 ---------------
 1.Commit
+
+mysql> SET AUTOCOMMIT=OFF;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++------+-------+----------+------+----------+
+| SSN  | name  | city     | dob  | adhar_no |
++------+-------+----------+------+----------+
+|    1 | SANJU | Kollam   | 2001 |    95445 |
+|    2 | ABHI  | Kochi    | 2002 |    67559 |
+|    3 | RAM   | Calicut  | 2000 |    45673 |
+|    4 | MANU  | Kannur   | 2001 |    56432 |
+|    5 | TOM   | Palakkad | 2002 |    65432 |
++------+-------+----------+------+----------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE values(6,"DIYA","WAYANAD",2000,98765);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> SELECT * FROM EMPLOYEE;
++------+-------+----------+------+----------+
+| SSN  | name  | city     | dob  | adhar_no |
++------+-------+----------+------+----------+
+|    1 | SANJU | Kollam   | 2001 |    95445 |
+|    2 | ABHI  | Kochi    | 2002 |    67559 |
+|    3 | RAM   | Calicut  | 2000 |    45673 |
+|    4 | MANU  | Kannur   | 2001 |    56432 |
+|    5 | TOM   | Palakkad | 2002 |    65432 |
+|    6 | DIYA  | WAYANAD  | 2000 |    98765 |
++------+-------+----------+------+----------+
+6 rows in set (0.00 sec)
+
