@@ -76,3 +76,60 @@ mysql> SELECT * FROM EMPLOYEE;
 
 ----------------------------------------------------------------------------------
 3.savepoint
+
+mysql> INSERT INTO EMPLOYEE values(7,"RIYA","kollam",2001,923423);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SAVEPOINT A;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO EMPLOYEE values(8,"THANU","malappuram",2002,923456);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SAVEPOINT B;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE values(9,"HARI","kochi",2002,97643);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SAVEPOINT C;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from EMPLOYEE;
++------+-------+------------+------+----------+
+| SSN  | name  | city       | dob  | adhar_no |
++------+-------+------------+------+----------+
+|    1 | SANJU | Kollam     | 2001 |    95445 |
+|    2 | ABHI  | Kochi      | 2002 |    67559 |
+|    3 | RAM   | Calicut    | 2000 |    45673 |
+|    4 | MANU  | Kannur     | 2001 |    56432 |
+|    5 | TOM   | Palakkad   | 2002 |    65432 |
+|    6 | DIYA  | WAYANAD    | 2000 |    98765 |
+|    7 | RIYA  | kollam     | 2001 |   923423 |
+|    8 | THANU | malappuram | 2002 |   923456 |
+|    9 | HARI  | kochi      | 2002 |    97643 |
++------+-------+------------+------+----------+
+9 rows in set (0.00 sec)
+
+mysql> ROLLBACK TO B;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from EMPLOYEE;
++------+-------+------------+------+----------+
+| SSN  | name  | city       | dob  | adhar_no |
++------+-------+------------+------+----------+
+|    1 | SANJU | Kollam     | 2001 |    95445 |
+|    2 | ABHI  | Kochi      | 2002 |    67559 |
+|    3 | RAM   | Calicut    | 2000 |    45673 |
+|    4 | MANU  | Kannur     | 2001 |    56432 |
+|    5 | TOM   | Palakkad   | 2002 |    65432 |
+|    6 | DIYA  | WAYANAD    | 2000 |    98765 |
+|    7 | RIYA  | kollam     | 2001 |   923423 |
+|    8 | THANU | malappuram | 2002 |   923456 |
++------+-------+------------+------+----------+
+8 rows in set (0.00 sec)
+
+---------------------------------------------------------------
