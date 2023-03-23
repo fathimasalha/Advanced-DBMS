@@ -175,3 +175,19 @@ mysql> SHOW GRANTS;
 +------------------------------------------------------------+
 2 rows in set (0.00 sec)
 
+-------------------------------------------------------------------------------------
+
+ 2.REVOKE
+       ->Remove delete privilege of user 2.
+
+mysql> REVOKE DELETE ON INVOICE.* from 'USER2'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants;
++----------------------------------------------------+
+| Grants for USER2@localhost                         |
++----------------------------------------------------+
+| GRANT USAGE ON *.* TO 'USER2'@'localhost'          |
+| GRANT UPDATE ON `INVOICE`.* TO 'USER2'@'localhost' |
++----------------------------------------------------+
+2 rows in set (0.00 sec)
