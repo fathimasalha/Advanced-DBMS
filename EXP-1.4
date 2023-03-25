@@ -4,6 +4,7 @@
 
 1.List all customer details. 
 
+
 mysql> SELECT * FROM Customer;
 +-----+--------+-----------+-----------+------------+
 | id  | name   | address   | city      | ph_no      |
@@ -18,7 +19,9 @@ mysql> SELECT * FROM Customer;
 6 rows in set (0.00 sec)
 
 -------------------------------------------------------------------------------------
+
 2.List pname, price of all products
+
 
 mysql> SELECT pname,price FROM Product;
 +----------+-------+
@@ -35,7 +38,9 @@ mysql> SELECT pname,price FROM Product;
 7 rows in set (0.00 sec)
 
 ---------------------------------------------------------------------------------
+
 3.List all invoice items, avoid duplicates.
+
 
 mysql> SELECT DISTINCT inv_id from Invoice_item;
 +--------+
@@ -46,7 +51,9 @@ mysql> SELECT DISTINCT inv_id from Invoice_item;
 1 row in set (0.02 sec)
 
 ----------------------------------------------------------------------------
+
 4.List product price between 50rs and 150rs
+
 
 mysql>  SELECT * FROM Product WHERE price  BETWEEN 50 AND 150;
 +-----+-------+-------+
@@ -57,5 +64,181 @@ mysql>  SELECT * FROM Product WHERE price  BETWEEN 50 AND 150;
 +-----+-------+-------+
 2 rows in set (0.00 sec)
 
+------------------------------------------------------------------------------
+
+5.List the customer details who lives in ‘KOZHIKODE’,’KARADI’
 
 
+mysql> select * from Customer WHERE city="KOZHIKODE" OR city="KARADI";
++-----+------+----------+-----------+------------+
+| id  | name | address  | city      | ph_no      |
++-----+------+----------+-----------+------------+
+| 100 | ALI  | THAYATH  | KOZHIKODE | 9544358026 |
+| 106 | RIYA | KARIYATH | KARADI    | 9974574898 |
++-----+------+----------+-----------+------------+
+2 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------
+
+6.List the invoice details from 23rd December 2022 to 4th March 2023
+
+
+mysql> select * from Invoice_master where in_date between '2022-12-23' and '2023-03-04';
++--------+------+------------+
+| inv_id | id   | in_date    |
++--------+------+------------+
+|      6 |  106 | 2022-12-23 |
+|      7 |  105 | 2023-03-04 |
+|      8 |  106 | 2023-03-04 |
+|      9 |  105 | 2022-12-24 |
++--------+------+------------+
+4 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------
+
+7.List the customer details who not live in "KOZHIKODE".
+
+mysql> select * from Customer WHERE city!="KOZHIKODe";
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 101 | AMI    | KARAMOOLA | ARAMBRAM  | 8675345623 |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
++-----+--------+-----------+-----------+------------+
+5 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------
+
+8.List the customers who have no phone number.
+
+mysql> SELECT * FROM Customer WHERE ph_no IS NULL;
++-----+------+---------+----------+-------+
+| id  | name | address | city     | ph_no |
++-----+------+---------+----------+-------+
+| 102 | SREE | WESTIL  | CALICUT  | NULL  |
+| 107 | DEV  | RAROTH  | PALAKKAD | NULL  |
++-----+------+---------+----------+-------+
+2 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------
+
+9.Display customer names in descending order.
+
+
+mysql> SELECT name FROM Customer ORDER BY name DESC;
++--------+
+| name   |
++--------+
+| SREE   |
+| SATHYA |
+| RIYA   |
+| MANU   |
+| DIYA   |
+| DEV    |
+| AMI    |
+| ALI    |
++--------+
+8 rows in set (0.00 sec)
+----------------------------------------------------------------------------
+
+10. Display the customer details sorted in ascending by city and descending by names.
+
+mysql> select * from Customer order by city asc,name desc;
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 101 | AMI    | KARAMOOLA | ARAMBRAM  | 8675345623 |
+| 102 | SREE   | WESTIL    | CALICUT   | NULL       |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 107 | DEV    | RAROTH    | PALAKKAD  | NULL       |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
++-----+--------+-----------+-----------+------------+
+8 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------
+
+11. Find the customer names start with ‘a’.
+
+
+mysql> SELECT name FROM Customer WHERE name LIKE 'a%';
++------+
+| name |
++------+
+| ALI  |
+| AMI  |
++------+
+2 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------
+
+12. Find the customer names who have ‘e’ or ‘a’ in them.
+
+
+mysql> SELECT name FROM Customer WHERE name LIKE '%a%'OR name LIKE '%e%';
++--------+
+| name   |
++--------+
+| ALI    |
+| AMI    |
+| SREE   |
+| MANU   |
+| DIYA   |
+| SATHYA |
+| RIYA   |
+| DEV    |
++--------+
+8 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------
+
+
+13. Find the customer names who have atleast 3 characters.
+
+mysql> SELECT name FROM Customer WHERE name LIKE '___%';
++--------+
+| name   |
++--------+
+| ALI    |
+| AMI    |
+| SREE   |
+| MANU   |
+| DIYA   |
+| SATHYA |
+| RIYA   |
+| DEV    |
++--------+
+8 rows in set (0.00 sec)
+---------------------------------------------------------------------------
+
+14. List the names of customers their names have ‘r’ in second position.
+
+
+mysql> SELECT name FROM Customer WHERE name LIKE '_r%';
++------+
+| name |
++------+
+| SREE |
++------+
+1 row in set (0.00 sec)
+
+-----------------------------------------------------------------------------
+
+15. Find the customer names start with ‘a’ and are at least 3 characters in length
+
+mysql> SELECT name FROM Customer WHERE name LIKE 'a__%';
++------+
+| name |
++------+
+| ALI  |
+| AMI  |
++------+
+2 rows in set (0.00 sec)
+
+
+                      ********************************************************
