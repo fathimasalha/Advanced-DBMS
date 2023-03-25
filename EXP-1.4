@@ -47,3 +47,15 @@ mysql> SELECT DISTINCT inv_id from Invoice_item;
 
 ----------------------------------------------------------------------------
 4.List product price between 50rs and 150rs
+
+mysql>  SELECT * FROM Product WHERE price  BETWEEN 50 AND 150;
++-----+-------+-------+
+| pid | pname | price |
++-----+-------+-------+
+|  12 | BOX   |    51 |
+|  15 | COLOR |    71 |
++-----+-------+-------+
+2 rows in set (0.00 sec)
+
+
+
