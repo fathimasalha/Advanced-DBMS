@@ -1,3 +1,68 @@
+mysql> select * from Customer;
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 101 | AMI    | KARAMOOLA | ARAMBRAM  | 8675345623 |
+| 102 | SREE   | WESTIL    | CALICUT   | NULL       |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
+| 107 | DEV    | RAROTH    | PALAKKAD  | NULL       |
+| 108 | RAMU   | CHALIL    | KOZHIKODE | 9876567845 |
++-----+--------+-----------+-----------+------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    10 |
+|  11 | PEN      |    15 |
+|  12 | BOX      |    51 |
+|  13 | SCALE    |    10 |
+|  14 | NOTEBOOK |    49 |
+|  15 | COLOR    |    71 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
+
+mysql> select * from Invoice_master;
++--------+------+------------+
+| inv_id | id   | in_date    |
++--------+------+------------+
+|      1 |  100 | 2022-12-03 |
+|      2 |  100 | 2022-11-11 |
+|      5 |  104 | 2022-11-12 |
+|      6 |  106 | 2022-12-23 |
+|      7 |  105 | 2023-03-04 |
+|      8 |  106 | 2023-03-04 |
+|      9 |  105 | 2022-12-24 |
++--------+------+------------+
+7 rows in set (0.00 sec)
+
+
+mysql> select * from Invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|      6 |   13 |        8 |
+|      1 |   10 |        2 |
+|      2 |   11 |        6 |
+|      7 |   11 |        4 |
+|      6 |   12 |        2 |
+|      2 |   10 |        2 |
+|      6 |   11 |        2 |
++--------+------+----------+
+7 rows in set (0.00 sec)
+
+
+
+
+
+
                              EXP-1.5:ACCESSING DATABASE:(SUBQUERY)
                              *************************************
 
@@ -16,4 +81,70 @@ mysql> SELECT name FROM Customer WHERE id IN (SELECT id FROM Invoice_master WHER
 ----------------------------------------------------------------------------------------------------------------------------
 2.List the product name and price of each invoice item.
 
+mysql> SELECT pname,price FROM Product WHERE pid IN(SELECT pid FROM Invoice_item);
++--------+-------+
+| pname  | price |
++--------+-------+
+| PENCIL |    10 |
+| PEN    |    15 |
+| BOX    |    51 |
+| SCALE  |    10 |
++--------+-------+
+4 rows in set (0.00 sec)
 
+-----------------------------------------------------------------------------------------------------------------
+3. List the product names, only include their purchased quantity more than 2.
+
+mysql> SELECT pname FROM Product WHERE pid IN(SELECT pid FROM Invoice_item WHERE quantity>2);
++-------+
+| pname |
++-------+
+| SCALE |
+| PEN   |
++-------+
+2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------
+4.Find the product that has no sale.
+
+mysql> SELECT * FROM Product WHERE  pid NOT IN(SELECT pid FROM Invoice_item);
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  14 | NOTEBOOK |    49 |
+|  15 | COLOR    |    71 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+3 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------
+5 .List the customer names who purchased the items ‘pen’ and ‘pencil’
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+6.Display the purchased product details of the customer 'ALI'.
+
+mysql>  SELECT * FROM Product WHERE pid IN(SELECT pid FROM Invoice_item WHERE inv_id IN(SELECT inv_id FROM Invoice_master WHERE id IN(SELECT id FROM Customer WHERE name='ALI')));
++-----+--------+-------+
+| pid | pname  | price |
++-----+--------+-------+
+|  10 | PENCIL |    10 |
+|  11 | PEN    |    15 |
++-----+--------+-------+
+2 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------
+7.List the names of all customers who have purchased at least 2 products, make sure that no duplicate names in the result.
+
+
+mysql> SELECT DISTINCT name FROM Customer WHERE id IN(SELECT id FROM Invoice_master WHERE inv_id IN (SELECT inv_id FROM Invoice_item GROUP BY inv_id HAVING COUNT(*)>2));
++------+
+| name |
++------+
+| RIYA |
++------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------------
