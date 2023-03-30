@@ -2,3 +2,18 @@
                   *****************************************
                   
 1. Create a view for customers who have purchased products. 
+
+mysql> CREATE VIEW CP  AS SELECT * FROM Customer WHERE id IN(SELECT id FROM Invoice_master);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> SELECT * FROM CP;
++-----+--------+----------+-----------+------------+
+| id  | name   | address  | city      | ph_no      |
++-----+--------+----------+-----------+------------+
+| 100 | ALI    | THAYATH  | KOZHIKODE | 9544358026 |
+| 104 | DIYA   | MEKKAL   | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH | KARADI    | 9974574898 |
++-----+--------+----------+-----------+------------+
+4 rows in set (0.00 sec)
+
