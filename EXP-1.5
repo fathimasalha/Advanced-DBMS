@@ -147,7 +147,7 @@ mysql>  SELECT * FROM Product WHERE pid IN(SELECT pid FROM Invoice_item WHERE in
 2 rows in set (0.00 sec)
 
 ----------------------------------------------------------------------------------------------------------------------
-7.List the names of all customers who have purchased at least 2 products, make sure that no duplicate names in the result.
+7.List the names of all customers who have purchased atleast 2 products, make sure that no duplicate names in the result.
 
 
 mysql> SELECT DISTINCT name FROM Customer WHERE id IN(SELECT id FROM Invoice_master WHERE inv_id IN (SELECT inv_id FROM Invoice_item GROUP BY inv_id HAVING COUNT(*)>2));
