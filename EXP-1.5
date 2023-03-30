@@ -81,6 +81,7 @@ mysql> SELECT name FROM Customer WHERE id IN (SELECT id FROM Invoice_master WHER
 ----------------------------------------------------------------------------------------------------------------------------
 2.List the product name and price of each invoice item.
 
+
 mysql> SELECT pname,price FROM Product WHERE pid IN(SELECT pid FROM Invoice_item);
 +--------+-------+
 | pname  | price |
