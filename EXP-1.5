@@ -149,7 +149,7 @@ mysql>  SELECT * FROM Product WHERE pid IN(SELECT pid FROM Invoice_item WHERE in
 7.List the names of all customers who have purchased atleast 2 products, make sure that no duplicate names in the result.
 
 
-mysql> SELECT DISTINCT name FROM Customer WHERE id IN(SELECT id FROM Invoice_master WHERE inv_id IN (SELECT inv_id FROM Invoice_item GROUP BY inv_id HAVING COUNT(*)>2));
+mysql> SELECT DISTINCT name FROM Customer WHERE id IN(SELECT id FROM Invoice_master WHERE inv_id IN (SELECT inv_id FROM Invoice_item GROUP BY inv_id HAVING COUNT(*)>2)); //WRONG QUERY
 +------+
 | name |
 +------+
@@ -158,3 +158,6 @@ mysql> SELECT DISTINCT name FROM Customer WHERE id IN(SELECT id FROM Invoice_mas
 1 row in set (0.00 sec)
 
 ---------------------------------------------------------------------------------------------------------------------------------------
+
+//ADD PROPER HEADING FOR EXPERIMENT
+//WRONG QUERY
