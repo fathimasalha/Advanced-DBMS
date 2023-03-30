@@ -121,6 +121,17 @@ mysql> SELECT * FROM Product WHERE  pid NOT IN(SELECT pid FROM Invoice_item);
 5 .List the customer names who purchased the items ‘pen’ and ‘pencil’
 
 
+mysql> SELECT name FROM Customer WHERE id IN (select id from Invoice_master where inv_id in (select inv_id from Invoice_item where pid in (select pid from Product where pname="PEN" OR pname="PENCIL")));
++--------+
+| name   |
++--------+
+| ALI    |
+| SATHYA |
+| RIYA   |
++--------+
+3 rows in set (0.02 sec)
+
+
 
 ------------------------------------------------------------------------------------------------------------------
 
