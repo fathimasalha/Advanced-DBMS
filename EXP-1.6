@@ -1,7 +1,9 @@
-                  EXP-1.6 1.6 ACCESSING DATABASES: (VIEWS)
+                  EXP-1.6 ACCESSING DATABASES: (VIEWS)
                   *****************************************
                   
+                  
 1. Create a view for customers who have purchased products. 
+
 
 mysql> CREATE VIEW CP  AS SELECT * FROM Customer WHERE id IN(SELECT id FROM Invoice_master);
 Query OK, 0 rows affected (0.03 sec)
@@ -17,3 +19,4 @@ mysql> SELECT * FROM CP;
 +-----+--------+----------+-----------+------------+
 4 rows in set (0.00 sec)
 
+---------------------------------------------------------------------------------------------
