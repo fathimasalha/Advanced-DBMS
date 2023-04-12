@@ -81,4 +81,58 @@ mysql> select * from Invoice_item;
 
 ------------------------------------------------------------------------------------------------------------------
 
-                      
+ 2.Display product details with an updated price amount(new price= old price+5rs)
+ 
+
+
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    10 |
+|  11 | PEN      |    15 |
+|  12 | BOX      |    51 |
+|  13 | SCALE    |    10 |
+|  14 | NOTEBOOK |    49 |
+|  15 | COLOR    |    71 |
+|  16 | MARKER   |    15 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
+
+ 
+mysql>  UPDATE Product SET price=price+5;
+Query OK, 7 rows affected (0.05 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+
+mysql> select * from Product;
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    15 |
+|  11 | PEN      |    20 |
+|  12 | BOX      |    56 |
+|  13 | SCALE    |    15 |
+|  14 | NOTEBOOK |    54 |
+|  15 | COLOR    |    76 |
+|  16 | MARKER   |    20 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
+ -----------------------------------------------------------------------------------------------------------
+
+3.Display customer details who doesn’t have phone number and lives in ‘Calicut’ city (use logical operators)
+
+
+mysql>  SELECT * FROM Customer WHERE ph_no IS NULL AND city="CALICUT";
++-----+------+---------+---------+-------+
+| id  | name | address | city    | ph_no |
++-----+------+---------+---------+-------+
+| 102 | SREE | WESTIL  | CALICUT | NULL  |
++-----+------+---------+---------+-------+
+1 row in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------
+
+4.List the product names if it finds any records in the invoice items table has quantity =4 (use special operators)
