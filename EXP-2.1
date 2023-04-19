@@ -3,3 +3,131 @@
                
                
 1-Create a procedure to display all tables in the invoice database. 
+
+
+mysql>  delimiter //
+mysql> create procedure INVOICE_tabless()
+    -> begin
+    -> select * from Customer;
+    -> select * from Product;
+    -> select * from Invoice_master;
+    -> select * from Invoice_item;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call INVOICE_tabless();
+    -> //
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 101 | AMI    | KARAMOOLA | ARAMBRAM  | 8675345623 |
+| 102 | SREE   | WESTIL    | CALICUT   | NULL       |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
+| 107 | DEV    | RAROTH    | PALAKKAD  | NULL       |
+| 108 | RAMU   | CHALIL    | KOZHIKODE | 9876567845 |
++-----+--------+-----------+-----------+------------+
+9 rows in set (0.00 sec)
+
++-----+----------+-------+
+| pid | pname    | price |
++-----+----------+-------+
+|  10 | PENCIL   |    15 |
+|  11 | PEN      |    20 |
+|  12 | BOX      |    56 |
+|  13 | SCALE    |    15 |
+|  14 | NOTEBOOK |    54 |
+|  15 | COLOR    |    76 |
+|  16 | MARKER   |    20 |
++-----+----------+-------+
+7 rows in set (0.00 sec)
+
++--------+------+------------+
+| inv_id | id   | in_date    |
++--------+------+------------+
+|      1 |  100 | 2022-12-03 |
+|      2 |  100 | 2022-11-11 |
+|      5 |  104 | 2022-11-12 |
+|      6 |  106 | 2022-12-23 |
+|      7 |  105 | 2023-03-04 |
+|      8 |  106 | 2023-03-04 |
+|      9 |  105 | 2022-12-24 |
++--------+------+------------+
+7 rows in set (0.00 sec)
+
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|      6 |   13 |        8 |
+|      1 |   10 |        2 |
+|      2 |   11 |        6 |
+|      7 |   11 |        4 |
+|      6 |   12 |        2 |
+|      2 |   10 |        2 |
+|      6 |   11 |        2 |
++--------+------+----------+
+7 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------
+
+2.Create a procedure to find greatest of 3 numbers.
+
+
+mysql> delimiter //
+mysql> create procedure greatest (a int,b int,c int)
+    -> begin
+    -> if(a>b) and(a>c) then
+    -> select a as 'Greatest';
+    -> elseif(b>a) and (b>c) then
+    -> select b as 'Greatest';
+    -> else
+    -> select c as 'Greatest';
+    -> end if;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql>  call greatest(3,5,7) //
++----------+
+| Greatest |
++----------+
+|        7 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------------
+
+3.Create a procedure to display invoice details of a particular customer.
+
+
+mysql> delimiter //
+mysql> create procedure inv_detail(a varchar(10))
+    -> begin
+    ->  select inv_id,in_date,price,quantity from Customer
+    -> natural join Invoice_master
+    -> natural join Invoice_item
+    -> natural join Product
+    -> WHERE name=a;
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call inv_detail('ALI') //
++--------+------------+-------+----------+
+| inv_id | in_date    | price | quantity |
++--------+------------+-------+----------+
+|      1 | 2022-12-03 |    15 |        2 |
+|      2 | 2022-11-11 |    20 |        6 |
+|      2 | 2022-11-11 |    15 |        2 |
++--------+------------+-------+----------+
+3 rows in set (0.02 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+
+
