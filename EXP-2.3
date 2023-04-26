@@ -5,5 +5,75 @@
  1. Create a trigger to handle updates to the customer table.    
  
  
+mysql> create table customer__1(id int,name varchar(15),address varchar(15),city varchar(25),phno bigint); //
+Query OK, 0 rows affected (0.18 sec)
+
+
+
+mysql> delimiter //
+mysql> 
+mysql> create trigger updaterS
+    -> before update
+    -> on Customer for each row
+    -> begin
+    -> insert into customer__1
+    ->  values(old.id,old.name,old.address,old.city,old.ph_no);
+    -> end //
+Query OK, 0 rows affected (0.06 sec)
+
+
+
+mysql> select * from Customer; //
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 101 | AMI    | KARAMOOLA | ARAMBRAM  | 8675345623 |
+| 102 | SREE   | WESTIL    | CALICUT   | NULL       |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | THLAYAD   | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
+| 107 | DEV    | RAROTH    | PALAKKAD  | NULL       |
+| 108 | RAMU   | CHALIL    | KOZHIKODE | 9876567845 |
++-----+--------+-----------+-----------+------------+
+9 rows in set (0.00 sec)
 
  
+mysql> update Customer set city='KANNUR' where id=105;
+    -> //
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+
+mysql> select * from customer__1; //
++------+--------+----------+---------+------------+
+| id   | name   | address  | city    | phno       |
++------+--------+----------+---------+------------+
+|  105 | SATHYA | MUTHALAM | THLAYAD | 8974574898 |
++------+--------+----------+---------+------------+
+1 row in set (0.00 sec)
+
+
+
+mysql> select * from Customer; //
++-----+--------+-----------+-----------+------------+
+| id  | name   | address   | city      | ph_no      |
++-----+--------+-----------+-----------+------------+
+| 100 | ALI    | THAYATH   | KOZHIKODE | 9544358026 |
+| 101 | AMI    | KARAMOOLA | ARAMBRAM  | 8675345623 |
+| 102 | SREE   | WESTIL    | CALICUT   | NULL       |
+| 103 | MANU   | VELLILATH | PADANILAM | 8976574894 |
+| 104 | DIYA   | MEKKAL    | KODUVALLY | 8976574898 |
+| 105 | SATHYA | MUTHALAM  | KANNUR    | 8974574898 |
+| 106 | RIYA   | KARIYATH  | KARADI    | 9974574898 |
+| 107 | DEV    | RAROTH    | PALAKKAD  | NULL       |
+| 108 | RAMU   | CHALIL    | KOZHIKODE | 9876567845 |
++-----+--------+-----------+-----------+------------+
+9 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+2. Create a trigger to handle inserts to the product relation ( if price < 5 the set price to 10).
+
