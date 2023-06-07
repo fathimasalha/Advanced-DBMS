@@ -1,2 +1,41 @@
-                      Experiment 3: NoSQL-CRUD
-                      *************************
+                                   Experiment 3: NoSQL-CRUD
+                                   *************************
+                      
+1.Write a MongoDB query to create an INVOICE database and collections (CUSTOMER, PRODUCT) and its corresponding documents.
+
+> use INVOICE
+
+switched to db INVOICE
+
+> db.CUSTOMER.insert({"Name":"Salha","city":"calicut","phno":"9847438967","age":22})
+WriteResult({ "nInserted" : 1 })
+
+> db.CUSTOMER.insert({"Name":"Aleefa","city":"kollam","phno":"9544358026","age":21})
+WriteResult({ "nInserted" : 1 })
+
+> db.CUSTOMER.insert({"Name":"Aleena","city":"kannur","phno":"9544354438","age":21})
+WriteResult({ "nInserted" : 1 })
+
+> db.CUSTOMER.insert({"Name":"Ameena","city":"thrissur","phno":"8547344533","age":23})
+WriteResult({ "nInserted" : 1 })
+
+> db.CUSTOMER.insert({"Name":"Ramsi","city":"palakkad","phno":"8545429023","age":20})
+WriteResult({ "nInserted" : 1 })
+> 
+
+
+
+> db.product.insertMany([{"pname":"eraser","price":"3"}, {"pname":"box","price":"35"}, {"pname":"pencil","price":"5"}, {"pname":"book","price":"15"}])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("648056a0d6ed5cbc8a65ab7b"),
+		ObjectId("648056a0d6ed5cbc8a65ab7c"),
+		ObjectId("648056a0d6ed5cbc8a65ab7d"),
+		ObjectId("648056a0d6ed5cbc8a65ab7e")
+	]
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
