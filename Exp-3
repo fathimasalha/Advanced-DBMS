@@ -2,6 +2,7 @@
                                    *************************
                       
 1.Write a MongoDB query to create an INVOICE database and collections (CUSTOMER, PRODUCT) and its corresponding documents.
+==========================================================================================================================
 
 > use INVOICE
 
@@ -37,5 +38,55 @@ WriteResult({ "nInserted" : 1 })
 }
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+2. Write a MongoDB query to find all documents from the collection CUSTOMER 
+============================================================================
 
 
+> db.CUSTOMER.find().pretty()
+{
+	"_id" : ObjectId("6480579ad6ed5cbc8a65ab7f"),
+	"Name" : "Salha",
+	"city" : "calicut",
+	"phno" : "9847438967",
+	"age" : 22
+}
+{
+	"_id" : ObjectId("648057b0d6ed5cbc8a65ab80"),
+	"Name" : "Aleefa",
+	"city" : "kollam",
+	"phno" : "9544358026",
+	"age" : 21
+}
+{
+	"_id" : ObjectId("648057b8d6ed5cbc8a65ab81"),
+	"Name" : "Aleena",
+	"city" : "kannur",
+	"phno" : "9544354438",
+	"age" : 21
+}
+{
+	"_id" : ObjectId("648057c2d6ed5cbc8a65ab82"),
+	"Name" : "Ameena",
+	"city" : "thrissur",
+	"phno" : "8547344533",
+	"age" : 23
+}
+{
+	"_id" : ObjectId("648057ccd6ed5cbc8a65ab83"),
+	"Name" : "Ramsi",
+	"city" : "palakkad",
+	"phno" : "8545429023",
+	"age" : 20
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.Write a MongoDB query to update the city in the collection CUSTOMER
+=====================================================================
+
+> db.CUSTOMER.update({city:"kollam"},{$set:{city:"alappuzha"}})
+
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> 
