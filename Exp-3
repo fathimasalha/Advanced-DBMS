@@ -27,13 +27,14 @@ WriteResult({ "nInserted" : 1 })
 
 
 > db.product.insertMany([{"pname":"eraser","price":"3"}, {"pname":"box","price":"35"}, {"pname":"pencil","price":"5"}, {"pname":"book","price":"15"}])
+
 {
 	"acknowledged" : true,
 	"insertedIds" : [
-		ObjectId("648056a0d6ed5cbc8a65ab7b"),
-		ObjectId("648056a0d6ed5cbc8a65ab7c"),
-		ObjectId("648056a0d6ed5cbc8a65ab7d"),
-		ObjectId("648056a0d6ed5cbc8a65ab7e")
+		ObjectId("64817e49a10548dc9c1dec43"),
+		ObjectId("64817e49a10548dc9c1dec44"),
+		ObjectId("64817e49a10548dc9c1dec45"),
+		ObjectId("64817e49a10548dc9c1dec46")
 	]
 }
 
@@ -43,43 +44,38 @@ WriteResult({ "nInserted" : 1 })
 2. Write a MongoDB query to find all documents from the collection CUSTOMER 
 ============================================================================
 
-
 > db.CUSTOMER.find().pretty()
 {
-	"_id" : ObjectId("6480579ad6ed5cbc8a65ab7f"),
-	"Name" : "Salha",
-	"city" : "calicut",
-	"phno" : "9847438967",
-	"age" : 22
-}
-{
-	"_id" : ObjectId("648057b0d6ed5cbc8a65ab80"),
+	"_id" : ObjectId("648173d7a10548dc9c1dec3b"),
 	"Name" : "Aleefa",
-	"city" : "kollam",
+	"city" : "alappuzha",
 	"phno" : "9544358026",
 	"age" : 21
 }
 {
-	"_id" : ObjectId("648057b8d6ed5cbc8a65ab81"),
+	"_id" : ObjectId("648173eaa10548dc9c1dec3c"),
 	"Name" : "Aleena",
 	"city" : "kannur",
 	"phno" : "9544354438",
 	"age" : 21
 }
 {
-	"_id" : ObjectId("648057c2d6ed5cbc8a65ab82"),
+	"_id" : ObjectId("648173f3a10548dc9c1dec3d"),
 	"Name" : "Ameena",
 	"city" : "thrissur",
 	"phno" : "8547344533",
 	"age" : 23
 }
 {
-	"_id" : ObjectId("648057ccd6ed5cbc8a65ab83"),
+	"_id" : ObjectId("648173fda10548dc9c1dec3e"),
 	"Name" : "Ramsi",
 	"city" : "palakkad",
 	"phno" : "8545429023",
 	"age" : 20
 }
+
+
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 
