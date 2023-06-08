@@ -1,0 +1,69 @@
+
+                             Assignment 4: Retrieving Data
+                             ******************************
+                             
+                            
+ 1.Write a MongoDB query to display the customer documents having city ‘kannur’,’palakkad’. 
+ ========================================================================================
+
+> db.CUSTOMER.find({$or:[{"city":"kannur"},{"city":"palakkad"}]}).pretty(); 
+
+{
+	"_id" : ObjectId("648173eaa10548dc9c1dec3c"),
+	"Name" : "Aleena",
+	"city" : "kannur",
+	"phno" : "9544354438",
+	"age" : 21
+}
+{
+	"_id" : ObjectId("648173fda10548dc9c1dec3e"),
+	"Name" : "Ramsi",
+	"city" : "palakkad",
+	"phno" : "8545429023",
+	"age" : 20
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Write a MongoDB query to display all customer documents who have age >21.
+============================================================================
+ 
+ >  db.CUSTOMER.find({"age":{$gt:21}}).pretty();
+ 
+{
+	"_id" : ObjectId("648173f3a10548dc9c1dec3d"),
+	"Name" : "Ameena",
+	"city" : "thrissur",
+	"phno" : "8547344533",
+	"age" : 23
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.Write a MongoDB query to find customer documents who not live in ‘kannur'
+===========================================================================
+
+
+> db.CUSTOMER.find({"city":{$ne:"kannur"}}).pretty();
+
+{
+	"_id" : ObjectId("648173d7a10548dc9c1dec3b"),
+	"Name" : "Aleefa",
+	"city" : "alappuzha",
+	"phno" : "9544358026",
+	"age" : 21
+}
+{
+	"_id" : ObjectId("648173f3a10548dc9c1dec3d"),
+	"Name" : "Ameena",
+	"city" : "thrissur",
+	"phno" : "8547344533",
+	"age" : 23
+}
+{
+	"_id" : ObjectId("648173fda10548dc9c1dec3e"),
+	"Name" : "Ramsi",
+	"city" : "palakkad",
+	"phno" : "8545429023",
+	"age" : 20
+}
