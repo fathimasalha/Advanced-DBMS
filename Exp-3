@@ -89,4 +89,33 @@ WriteResult({ "nInserted" : 1 })
 > db.CUSTOMER.update({city:"kollam"},{$set:{city:"alappuzha"}})
 
 WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
-> 
+ 
+ 
+ 
+> db.CUSTOMER.findOne({city:"alappuzha"})
+{
+	"_id" : ObjectId("648173d7a10548dc9c1dec3b"),
+	"Name" : "Aleefa",
+	"city" : "alappuzha",
+	"phno" : "9544358026",
+	"age" : 21
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.Write a MongoDB query to delete the first matched document whose city is “Calicut”.
+====================================================================================
+
+> db.CUSTOMER.deleteOne({city:"calicut"}) 
+
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+> db.CUSTOMER.find()
+
+{ "_id" : ObjectId("648173d7a10548dc9c1dec3b"), "Name" : "Aleefa", "city" : "alappuzha", "phno" : "9544358026", "age" : 21 }
+{ "_id" : ObjectId("648173eaa10548dc9c1dec3c"), "Name" : "Aleena", "city" : "kannur", "phno" : "9544354438", "age" : 21 }
+{ "_id" : ObjectId("648173f3a10548dc9c1dec3d"), "Name" : "Ameena", "city" : "thrissur", "phno" : "8547344533", "age" : 23 }
+{ "_id" : ObjectId("648173fda10548dc9c1dec3e"), "Name" : "Ramsi", "city" : "palakkad", "phno" : "8545429023", "age" : 20 }
+
+
+
