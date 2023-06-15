@@ -6,12 +6,10 @@
 1. Write a MongoDB query to create a user “CUSTOMER1” and grant the read role in the INVOICE database. 
 =====================================================================================================
 
-> db.createUser({user:"salha",pwd:"9544",roles:[{role:"read",db:"INVOICE"}]})
-
-
+> db.createUser({user:"customer1",pwd:"1122",roles:[{role:"read",db:"INVOICE"}]})
 
 Successfully added user: {
-	"user" : "salha",
+	"user" : "customer1",
 	"roles" : [
 		{
 			"role" : "read",
@@ -19,7 +17,10 @@ Successfully added user: {
 		}
 	]
 }
- 
+
+
+
+
  
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
