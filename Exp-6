@@ -22,3 +22,69 @@ Successfully added user: {
  
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Write a MongoDB query to create the backup for the INVOICE database.
+======================================================================
+
+ksb@ksb-Lenovo-Product:~$ mongodump --db INVOICE
+
+
+2023-06-15T14:52:09.740+0530	writing INVOICE.product to 
+2023-06-15T14:52:09.741+0530	writing INVOICE.CUSTOMER to 
+2023-06-15T14:52:09.741+0530	done dumping INVOICE.product (8 documents)
+2023-06-15T14:52:09.742+0530	done dumping INVOICE.CUSTOMER (4 documents)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3) Write a MongoDB query to restore a particular database or a collection.
+==========================================================================
+
+
+ksb@ksb-Lenovo-Product:~$ mongodump --db INVOICE
+
+2023-06-15T14:56:57.968+0530	writing INVOICE.product to 
+2023-06-15T14:56:57.969+0530	writing INVOICE.CUSTOMER to 
+2023-06-15T14:56:57.969+0530	done dumping INVOICE.product (8 documents)
+2023-06-15T14:56:57.969+0530	done dumping INVOICE.CUSTOMER (4 documents)
+
+
+> show dbs
+
+INVOICE  0.000GB
+admin    0.000GB
+local    0.000GB
+
+
+
+
+> use INVOICE
+switched to db INVOICE
+> db.dropDatabase()
+{ "dropped" : "INVOICE", "ok" : 1 }
+
+> show dbs
+admin  0.000GB
+local  0.000GB
+
+
+
+ksb@ksb-Lenovo-Product:~$ mongorestore --db INVOICE  dump/INVOICE
+
+2023-06-15T15:06:23.344+0530	building a list of collections to restore from dump/INVOICE dir
+2023-06-15T15:06:23.345+0530	reading metadata for INVOICE.product from dump/INVOICE/product.metadata.json
+2023-06-15T15:06:23.345+0530	reading metadata for INVOICE.CUSTOMER from dump/INVOICE/CUSTOMER.metadata.json
+2023-06-15T15:06:23.542+0530	restoring INVOICE.CUSTOMER from dump/INVOICE/CUSTOMER.bson
+2023-06-15T15:06:23.714+0530	restoring INVOICE.product from dump/INVOICE/product.bson
+2023-06-15T15:06:23.715+0530	restoring indexes for collection INVOICE.CUSTOMER from metadata
+2023-06-15T15:06:23.716+0530	finished restoring INVOICE.CUSTOMER (4 documents)
+2023-06-15T15:06:23.716+0530	restoring indexes for collection INVOICE.product from metadata
+2023-06-15T15:06:23.717+0530	finished restoring INVOICE.product (8 documents)
+2023-06-15T15:06:23.717+0530	done
+
+
+> show dbs
+INVOICE  0.000GB
+admin    0.000GB
+local    0.000GB
+
+
