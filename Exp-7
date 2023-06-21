@@ -16,7 +16,7 @@
 > db.CUSTOMER.getIndexes()
 [
 	{
-		"v" : 1,
+		"v" : 2,
 		"key" : {
 			"_id" : 1
 		},
@@ -24,7 +24,7 @@
 		"ns" : "INVOICE.CUSTOMER"
 	},
 	{
-		"v" : 1,
+		"v" : 2,
 		"key" : {
 			"name" : 1
 		},
