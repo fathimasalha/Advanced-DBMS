@@ -5,4 +5,32 @@
  1. Write a MongoDB query to create an index for the collection customer using the field customer_name.
  ======================================================================================================
  
- 
+ > db.CUSTOMER.createIndex({name:1})
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+
+> db.CUSTOMER.getIndexes()
+[
+	{
+		"v" : 1,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "INVOICE.CUSTOMER"
+	},
+	{
+		"v" : 1,
+		"key" : {
+			"name" : 1
+		},
+		"name" : "name_1",
+		"ns" : "INVOICE.CUSTOMER"
+	}
+]
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
